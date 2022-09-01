@@ -1,0 +1,46 @@
+{
+  "name": "express-negotiate-middleware",
+  "version": "0.0.1",
+  "description": "negotiation middleware for express",
+  "keywords": [
+    "express",
+    "negotiate"
+  ],
+  "homepage": "https://github.com/vorticalbox/express-negotiate-middleware#readme",
+  "bugs": {
+    "url": "https://github.com/vorticalbox/express-negotiate-middleware/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vorticalbox/express-negotiate-middleware.git"
+  },
+  "license": "lgpl-3.0",
+  "author": "vorticalbox <vorticalbox@duck.com>",
+  "main": "./index.js",
+  "scripts": {
+    "build": "rm -rf dist && tsc --build",
+    "lint": "eslint . --ext .ts",
+    "lint:fix": "eslint . --ext .ts,.js --fix",
+    "prepublishOnly": "npm run build && cp -r ./dist/* . && rm -rf ./dist",
+    "postpublish": "git clean -fd",
+    "test": "jest --config=jest.config.json",
+    "pretest": "npm run lint"
+  },
+  "dependencies": {
+    "@types/express": "^4.17.13",
+    "express": "^4.18.1"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.0.0",
+    "@types/supertest": "^2.0.12",
+    "@typescript-eslint/eslint-plugin": "^5.36.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-jsdoc": "^39.3.6",
+    "eslint-plugin-sonarjs": "^0.15.0",
+    "eslint-plugin-unicorn": "^43.0.2",
+    "jest": "^28.1.3",
+    "supertest": "^6.2.4",
+    "ts-jest": "^28.0.8",
+    "typescript": "^4.8.2"
+  }
+}

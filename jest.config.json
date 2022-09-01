@@ -1,0 +1,28 @@
+{
+  "transform": {
+      ".(ts|tsx)": "ts-jest"
+  },
+  "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
+  "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+  ],
+  "testEnvironment": "node",
+  "testPathIgnorePatterns": [
+      "/node_modules/",
+      "./dist",
+      "./src/__tests__/environment/",
+      "./src/__mocks__/",
+      "/.dependabot",
+      ".github"
+  ],
+  "roots": [
+    "<rootDir>/src"
+  ],
+  "coverageReporters": [
+      "text"
+  ],
+  "collectCoverage": true,
+  "coverageDirectory": "./coverage"
+}
