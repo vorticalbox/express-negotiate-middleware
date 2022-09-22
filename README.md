@@ -55,7 +55,7 @@ In this example the server will have the abilty to return both html and JSON. Th
 
 ```typescript
 import express, { Request, Response } from 'express';
-import { negotiate } from 'express-negotiate-middleware';
+import { negotiate, NotAcceptable } from 'express-negotiate-middleware';
 
 const jsonHandler = (_request: Request, response: Response): void => {
   response.json({ message: 'hello world' });
@@ -70,6 +70,7 @@ const application = express();
 application.get('/', negotiate({ 'application/json': jsonHandler, 'text/html': htmlHandler }));
 
 application.listen(8080);
+
 ```
 
 #### Client
@@ -139,12 +140,13 @@ const application = express();
 application.get('/', negotiate({ 'application/json': jsonHandler, 'text/html': htmlHandler }));
 
 application.use((error: unknown, _request: Request, response: Response) => {
-    if (error instanceof NotAcceptable) {
-        response.status(error.statusCode).json({ error: error.message });
-    } else {
-        response.status(500).json(error);
-    }
+  if (error instanceof NotAcceptable) {
+    response.status(error.statusCode).json({ error: error.message });
+  } else {
+    response.status(500).json(error);
+  }
 });
 
 application.listen(8080);
+
 ```
