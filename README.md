@@ -55,7 +55,7 @@ In this example the server will have the abilty to return both html and JSON. Th
 
 ```typescript
 import express, { Request, Response } from 'express';
-import { negotiate, NotAcceptable } from 'express-negotiate-middleware';
+import { negotiate } from 'express-negotiate-middleware';
 
 const jsonHandler = (_request: Request, response: Response): void => {
   response.json({ message: 'hello world' });
