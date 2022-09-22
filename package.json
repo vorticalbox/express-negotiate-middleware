@@ -1,6 +1,6 @@
 {
   "name": "express-negotiate-middleware",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "negotiation middleware for express",
   "keywords": [
     "express",
